@@ -80,7 +80,7 @@ public class UnitSelectionManager : MonoBehaviour {
                     }
                 };
                 if (collisionWorld.CastRay(raycastInput, out Unity.Physics.RaycastHit raycastHit)) {
-                    if (entityManager.HasComponent<Unit>(raycastHit.Entity)) {
+                    if (entityManager.HasComponent<Unit>(raycastHit.Entity)&& entityManager.HasComponent<Selected>(raycastHit.Entity)) {
                         entityManager.SetComponentEnabled<Selected>(raycastHit.Entity, true);
                         Selected selected = entityManager.GetComponentData<Selected>(raycastHit.Entity);
                         selected.onSelect = true;
